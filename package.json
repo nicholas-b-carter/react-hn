@@ -9,14 +9,14 @@
     "url": "http://github.com/insin/react-hn.git"
   },
   "scripts": {
-    "build": "npm run lint && cp node_modules/sw-toolbox/sw-toolbox.js dist/sw-toolbox.js && ./node_modules/.bin/nwb build && npm run copy-manifest && npm run precache",
+    "build": "npm run lint && cp ./node_modules/sw-toolbox/sw-toolbox.js ./dist/sw-toolbox.js && ./node_modules/.bin/nwb build && npm run copy-manifest && npm run precache",
     "deploy": "gcloud preview app deploy",
     "lint": "./node_modules/eslint-config-jonnybuchanan/bin/lint.js src",
     "lint:fix": "./node_modules/eslint-config-jonnybuchanan/bin/lint.js --fix .",
     "start": "node server.js",
     "postinstall": "npm run build",
     "serve": "./node_modules/.bin/nwb serve",
-    "copy-manifest": "cp public/manifest.json dist/manifest.json",
+    "copy-manifest": "cp public/manifest.json ./dist/manifest.json",
     "clean": "rm -rf *.json.gzip dist/index.html",
     "precache": "./node_modules/sw-precache/cli.js --root=public --config=sw-precache-config.json && npm run clean",
     "lighthouse-run-build": "./node_modules/lighthouse/lighthouse-cli/index.js http://localhost:5000",
@@ -54,6 +54,8 @@
   },
   "devDependencies": {
     "concurrently": "^3.1.0",
+    "eslint": "^3.8.1",
+    "eslint-config-jonnybuchanan": "^4.6.0",
     "html-webpack-plugin": "^2.22.0",
     "lighthouse": "^1.1.6",
     "webpack": "^1.13.2"
